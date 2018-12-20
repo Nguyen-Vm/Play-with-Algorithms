@@ -21,7 +21,7 @@ public class Main {
         Integer[] arr2 = Arrays.copyOf(arr1, arr1.length);
         Integer[] arr3 = Arrays.copyOf(arr1, arr1.length);
 
-        SortTestHelper.testSort("sorting.basic.insertion.InsertionSort", arr1);
+        SortTestHelper.testSort("sorting.basic.insertion.InsertionSortAdvance", arr1);
         SortTestHelper.testSort("sorting.basic.selection.SelectionSort", arr2);
         SortTestHelper.testSort("sorting.basic.selection.SelectSortOptimized", arr3);
 
@@ -34,7 +34,7 @@ public class Main {
         arr1 = SortTestHelper.generateNearlyOrderedArray(N, swapTimes);
         arr2 = Arrays.copyOf(arr1, arr2.length);
         arr3 = Arrays.copyOf(arr1, arr2.length);
-        SortTestHelper.testSort("sorting.basic.insertion.InsertionSort", arr1);
+        SortTestHelper.testSort("sorting.basic.insertion.InsertionSortAdvance", arr1);
         SortTestHelper.testSort("sorting.basic.selection.SelectionSort", arr2);
         SortTestHelper.testSort("sorting.basic.selection.SelectSortOptimized", arr3);
 
