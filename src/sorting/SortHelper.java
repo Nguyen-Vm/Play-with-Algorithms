@@ -1,4 +1,4 @@
-package sorting.basic;
+package sorting;
 
 import java.lang.reflect.Method;
 
@@ -6,10 +6,10 @@ import java.lang.reflect.Method;
  * @author RWM
  * @date 2018/12/18
  */
-public class SortTestHelper {
+public class SortHelper {
 
     // SortTestHelper不允许产生任何实例
-    private SortTestHelper() {
+    private SortHelper() {
     }
 
     /**
@@ -39,6 +39,7 @@ public class SortTestHelper {
      * swapTimes定义了数组的无需程度：
      * swapTimes=0时，数组完全有序
      * swapTimes越大，数组越趋向于无序
+     *
      * @param n
      * @param swapTimes
      * @return
@@ -81,6 +82,11 @@ public class SortTestHelper {
             }
         }
         return true;
+    }
+
+    // x是否小于y
+    public static boolean less(Comparable x, Comparable y) {
+        return x.compareTo(y) < 0;
     }
 
     // 测试sortClassName所对应的排序算法排序arr数组所得结果的正确性和算法运行时间
