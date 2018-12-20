@@ -1,6 +1,6 @@
 package sorting.basic.selection;
 
-import sorting.basic.SortTestHelper;
+import sorting.SortHelper;
 
 /**
  * @author RWM
@@ -18,14 +18,14 @@ public class SelectSortOptimized {
             int minIndex = left;
             int maxIndex = right;
 
-            if (arr[minIndex].compareTo(arr[maxIndex]) > 0) {
+            if (SortHelper.less(arr[maxIndex], arr[minIndex])) {
                 swap(arr, minIndex, maxIndex);
             }
 
             for (int i = left + 1; i < right; i++) {
-                if (arr[i].compareTo(arr[minIndex]) < 0) {
+                if (SortHelper.less(arr[i], arr[minIndex])) {
                     minIndex = i;
-                } else if (arr[i].compareTo(arr[maxIndex]) > 0) {
+                } else if (SortHelper.less(arr[maxIndex], arr[i])) {
                     maxIndex = i;
                 }
             }
@@ -45,8 +45,8 @@ public class SelectSortOptimized {
     }
 
     public static void main(String[] args) {
-        Integer[] arr = SortTestHelper.generateRandomArray(100, 0, 100);
+        Integer[] arr = SortHelper.generateRandomArray(100, 0, 100);
         sort(arr);
-        assert SortTestHelper.isSorted(arr);
+        assert SortHelper.isSorted(arr);
     }
 }

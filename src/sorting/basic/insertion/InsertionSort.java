@@ -1,6 +1,6 @@
 package sorting.basic.insertion;
 
-import sorting.basic.SortTestHelper;
+import sorting.SortHelper;
 
 /**
  * @author RWM
@@ -27,8 +27,8 @@ public class InsertionSort {
             }*/
 
 
-            // 写法2
-            for (int j = i; j > 0 && arr[j].compareTo(arr[j - 1]) < 0; j--) {
+            // 写法2 arr[j].compareTo(arr[j - 1]) < 0
+            for (int j = i; j > 0 && SortHelper.less(arr[j], arr[j - 1]); j--) {
                 swap(arr, j, j - 1);
             }
 
@@ -42,7 +42,7 @@ public class InsertionSort {
     }
 
     public static void main(String[] args) {
-        Integer[] arr = SortTestHelper.generateRandomArray(1000, 1, 1000);
-        SortTestHelper.testSort("sorting.basic.insertion.InsertionSort", arr);
+        Integer[] arr = SortHelper.generateRandomArray(1000, 1, 1000);
+        SortHelper.testSort("sorting.basic.insertion.InsertionSort", arr);
     }
 }

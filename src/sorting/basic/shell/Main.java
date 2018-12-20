@@ -1,6 +1,6 @@
 package sorting.basic.shell;
 
-import sorting.basic.SortTestHelper;
+import sorting.SortHelper;
 
 import java.util.Arrays;
 
@@ -18,15 +18,15 @@ public class Main {
         // 测试1 一般测试
         System.out.println("Test for random array, size = " + N + " , random range [0, " + N + "]");
 
-        Integer[] arr1 = SortTestHelper.generateRandomArray(N, 0, N);
+        Integer[] arr1 = SortHelper.generateRandomArray(N, 0, N);
         Integer[] arr2 = Arrays.copyOf(arr1, arr1.length);
         Integer[] arr3 = Arrays.copyOf(arr1, arr1.length);
         Integer[] arr4 = Arrays.copyOf(arr1, arr1.length);
 
-        SortTestHelper.testSort("sorting.basic.selection.SelectionSort", arr1);
-        SortTestHelper.testSort("sorting.basic.insertion.InsertionSortAdvance", arr2);
-        SortTestHelper.testSort("sorting.basic.bubble.BubbleSort", arr3);
-        SortTestHelper.testSort("sorting.basic.shell.ShellSort", arr4);
+        SortHelper.testSort("sorting.basic.selection.SelectionSort", arr1);
+        SortHelper.testSort("sorting.basic.insertion.InsertionSortAdvance", arr2);
+        SortHelper.testSort("sorting.basic.bubble.BubbleSort", arr3);
+        SortHelper.testSort("sorting.basic.shell.ShellSort", arr4);
 
         System.out.println();
 
@@ -35,14 +35,14 @@ public class Main {
         int swapTimes = 100;
         System.out.println("Test for nearly ordered array, size = " + N + " , swap time = " + swapTimes);
 
-        arr1 = SortTestHelper.generateNearlyOrderedArray(N, swapTimes);
+        arr1 = SortHelper.generateNearlyOrderedArray(N, swapTimes);
         arr2 = Arrays.copyOf(arr1, arr1.length);
         arr3 = Arrays.copyOf(arr1, arr1.length);
         arr4 = Arrays.copyOf(arr1, arr1.length);
 
-        SortTestHelper.testSort("sorting.basic.selection.SelectionSort", arr1);
-        SortTestHelper.testSort("sorting.basic.insertion.InsertionSortAdvance", arr2);
-        SortTestHelper.testSort("sorting.basic.bubble.BubbleSort", arr3);
-        SortTestHelper.testSort("sorting.basic.shell.ShellSort", arr4);
+        SortHelper.testSort("sorting.basic.selection.SelectionSort", arr1);
+        SortHelper.testSort("sorting.basic.insertion.InsertionSortAdvance", arr2);
+        SortHelper.testSort("sorting.basic.bubble.BubbleSort", arr3);
+        SortHelper.testSort("sorting.basic.shell.ShellSort", arr4);
     }
 }

@@ -1,6 +1,6 @@
 package sorting.basic.bubble;
 
-import sorting.basic.SortTestHelper;
+import sorting.SortHelper;
 
 /**
  * @author RWM
@@ -18,7 +18,7 @@ public class BubbleSort {
         do {
             swapped = false;
             for (int i = 1; i < n; i++) {
-                if (arr[i - 1].compareTo(arr[i]) > 0) {
+                if (!SortHelper.less(arr[i - 1], arr[i])) {
                     swap(arr, i - 1, i);
                     swapped = true;
                 }
@@ -37,8 +37,8 @@ public class BubbleSort {
     }
 
     public static void main(String[] args) {
-        Integer[] arr = SortTestHelper.generateRandomArray(100, 0, 100);
+        Integer[] arr = SortHelper.generateRandomArray(100, 0, 100);
         sort(arr);
-        assert SortTestHelper.isSorted(arr);
+        assert SortHelper.isSorted(arr);
     }
 }

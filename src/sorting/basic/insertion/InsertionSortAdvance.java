@@ -1,6 +1,6 @@
 package sorting.basic.insertion;
 
-import sorting.basic.SortTestHelper;
+import sorting.SortHelper;
 
 /**
  * @author RWM
@@ -17,29 +17,26 @@ public class InsertionSortAdvance {
 
             // 寻找arr[i]合适的插入位置
 
-            // 写法1
-            /*for (int j = i; j > 0; j--) {
-                if (arr[j].compareTo(arr[j - 1]) < 0) {
-                    swap(arr, j, j - 1);
-                } else {
-                    break;
-                }
-            }*/
-
-
-            // 写法2
-            /*for (int j = i; j > 0 && arr[j].compareTo(arr[j - 1]) < 0; j--) {
-                swap(arr, j, j - 1);
-            }*/
-
             // 写法3
             Comparable temp = arr[i];
             int j = i;
-            for (; j > 0 && temp.compareTo(arr[j - 1]) < 0; j--) {
+            for (; j > 0 && SortHelper.less(temp, arr[j - 1]); j--) {
                 arr[j] = arr[j - 1];
             }
             arr[j] = temp;
 
+        }
+    }
+
+    // 对arr[l...r]的区间使用InsertionSort排序
+    public static void sort(Comparable[] arr, int l, int r){
+
+        for( int i = l + 1 ; i <= r ; i ++ ){
+            Comparable e = arr[i];
+            int j = i;
+            for( ; j > l && arr[j-1].compareTo(e) > 0 ; j--)
+                arr[j] = arr[j-1];
+            arr[j] = e;
         }
     }
 
@@ -50,7 +47,7 @@ public class InsertionSortAdvance {
     }
 
     public static void main(String[] args) {
-        Integer[] arr = SortTestHelper.generateRandomArray(1000, 1, 1000);
-        SortTestHelper.testSort("sorting.basic.insertion.InsertionSort", arr);
+        Integer[] arr = SortHelper.generateRandomArray(1000, 1, 1000);
+        SortHelper.testSort("sorting.basic.insertion.InsertionSort", arr);
     }
 }

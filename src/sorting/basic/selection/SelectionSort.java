@@ -1,6 +1,6 @@
 package sorting.basic.selection;
 
-import sorting.basic.SortTestHelper;
+import sorting.SortHelper;
 
 /**
  * @author RWM
@@ -16,7 +16,7 @@ public class SelectionSort {
         for (int i = 0; i < n; i++) {
             int mixIndex = i;
             for (int j = i + 1; j < n; j++) {
-                if (arr[j].compareTo(arr[mixIndex]) < 0) {
+                if (SortHelper.less(arr[j], arr[mixIndex])) {
                     mixIndex = j;
                 }
             }
@@ -33,7 +33,7 @@ public class SelectionSort {
 
     public static void main(String[] args) {
         int N = 2000;
-        Integer[] arr = SortTestHelper.generateRandomArray(N, 1, 1000);
-        SortTestHelper.testSort("sorting.basic.selection.SelectionSort", arr);
+        Integer[] arr = SortHelper.generateRandomArray(N, 1, 1000);
+        SortHelper.testSort("sorting.basic.selection.SelectionSort", arr);
     }
 }

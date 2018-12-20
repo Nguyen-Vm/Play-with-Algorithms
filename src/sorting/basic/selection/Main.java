@@ -1,6 +1,6 @@
 package sorting.basic.selection;
 
-import sorting.basic.SortTestHelper;
+import sorting.SortHelper;
 
 import java.util.Arrays;
 
@@ -17,13 +17,13 @@ public class Main {
         /** 优化后的选择排序，速率略高 **/
         System.out.println("Test for random array, size = " + N + " , random range [0, " + N + "]");
 
-        Integer[] arr1 = SortTestHelper.generateRandomArray(N, 0, N);
+        Integer[] arr1 = SortHelper.generateRandomArray(N, 0, N);
         Integer[] arr2 = Arrays.copyOf(arr1, arr1.length);
         Integer[] arr3 = Arrays.copyOf(arr1, arr1.length);
 
-        SortTestHelper.testSort("sorting.basic.insertion.InsertionSortAdvance", arr1);
-        SortTestHelper.testSort("sorting.basic.selection.SelectionSort", arr2);
-        SortTestHelper.testSort("sorting.basic.selection.SelectSortOptimized", arr3);
+        SortHelper.testSort("sorting.basic.insertion.InsertionSortAdvance", arr1);
+        SortHelper.testSort("sorting.basic.selection.SelectionSort", arr2);
+        SortHelper.testSort("sorting.basic.selection.SelectSortOptimized", arr3);
 
 
         /** 近乎有序的数组，插入排序远远优于选择排序 **/
@@ -31,12 +31,12 @@ public class Main {
         System.out.println();
         System.out.println("Test for nearly ordered array, size = " + N + " , swap time = " + N);
 
-        arr1 = SortTestHelper.generateNearlyOrderedArray(N, swapTimes);
+        arr1 = SortHelper.generateNearlyOrderedArray(N, swapTimes);
         arr2 = Arrays.copyOf(arr1, arr2.length);
         arr3 = Arrays.copyOf(arr1, arr2.length);
-        SortTestHelper.testSort("sorting.basic.insertion.InsertionSortAdvance", arr1);
-        SortTestHelper.testSort("sorting.basic.selection.SelectionSort", arr2);
-        SortTestHelper.testSort("sorting.basic.selection.SelectSortOptimized", arr3);
+        SortHelper.testSort("sorting.basic.insertion.InsertionSortAdvance", arr1);
+        SortHelper.testSort("sorting.basic.selection.SelectionSort", arr2);
+        SortHelper.testSort("sorting.basic.selection.SelectSortOptimized", arr3);
 
 
         System.out.println();
