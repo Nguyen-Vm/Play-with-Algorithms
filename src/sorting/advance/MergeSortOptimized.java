@@ -17,7 +17,6 @@ public class MergeSortOptimized {
         sort(arr, aux, 0, arr.length - 1);
     }
 
-    //
     private static void sort(Comparable[] arr, Comparable[] aux, int left, int right) {
 
         if (right - left <= 15) {
@@ -33,7 +32,6 @@ public class MergeSortOptimized {
         }
     }
 
-    //
     private static void merge(Comparable[] arr, Comparable[] aux, int left, int middle, int right) {
 
         for (int k = left; k <= right; k++) {

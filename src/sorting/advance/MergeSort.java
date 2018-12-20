@@ -16,7 +16,6 @@ public class MergeSort {
         sort(arr, aux, 0, arr.length - 1);
     }
 
-    //
     private static void sort(Comparable[] arr, Comparable[] aux, int left, int right) {
         if (left >= right) return;
 
@@ -26,7 +25,6 @@ public class MergeSort {
         merge(arr, aux, left, middle, right);
     }
 
-    //
     private static void merge(Comparable[] arr, Comparable[] aux, int left, int middle, int right) {
 
         for (int k = left; k <= right; k++) {
