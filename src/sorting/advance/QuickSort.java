@@ -25,10 +25,15 @@ public class QuickSort {
     }
 
     private static int partition(Comparable[] arr, int left, int right) {
+
+        // 随机在arr[l...r]的范围中, 选择一个数值作为标定点pivot
+        swap( arr, left , (int)(Math.random()*(right-left+1))+left );
+
+        Comparable v = arr[left];
+
         int i = left;
         int j = right + 1;
 
-        Comparable v = arr[left];
         while (true) {
             while (SortHelper.less(arr[++i], v)) {
                 if (i >= right) break;
