@@ -29,10 +29,18 @@ public class BST<Key extends Comparable<Key>, Value> {
             this.value = value;
             left = right = null;
         }
+
+        public Node(Node node) {
+            this.key = node.key;
+            this.value = node.value;
+            this.left = node.left;
+            this.right = node.right;
+        }
     }
 
     /**
      * 二分搜索树的节点个数
+     *
      * @return
      */
     public int size() {
@@ -41,6 +49,7 @@ public class BST<Key extends Comparable<Key>, Value> {
 
     /**
      * 二分搜索树是否为空
+     *
      * @return
      */
     public boolean isEmpty() {
@@ -49,6 +58,7 @@ public class BST<Key extends Comparable<Key>, Value> {
 
     /**
      * 二分搜索树中是否存在键Key
+     *
      * @param key
      * @return
      */
@@ -58,6 +68,7 @@ public class BST<Key extends Comparable<Key>, Value> {
 
     /**
      * 在二分搜索树中搜索键Key所对应的值。如果这个键Key不存在，则返回null
+     *
      * @param key
      * @return
      */
@@ -67,6 +78,7 @@ public class BST<Key extends Comparable<Key>, Value> {
 
     /**
      * 向二分搜索树中插入一个新的（Key， Value）数据对
+     *
      * @param key
      * @param value
      */
@@ -117,6 +129,7 @@ public class BST<Key extends Comparable<Key>, Value> {
 
     /**
      * 寻找最小的键值
+     *
      * @return
      */
     public Key minimum() {
@@ -127,6 +140,7 @@ public class BST<Key extends Comparable<Key>, Value> {
 
     /**
      * 寻找最大的键值
+     *
      * @return
      */
     public Key maximum() {
@@ -150,6 +164,52 @@ public class BST<Key extends Comparable<Key>, Value> {
     public void removeMax() {
         if (root != null) {
             root = removeMax(root);
+        }
+    }
+
+    /**
+     * 从二叉树中删除键值为key的节点
+     *
+     * @param key
+     */
+    public void remove(Key key) {
+        assert contain(key);
+        root = remove(root, key);
+    }
+
+    // 删除掉以node为根的二分搜索树中键值为Key的节点
+    // 返回删除节点后新的二分搜索树的根
+    private Node remove(Node node, Key key) {
+
+        if (node == null) {
+            return null;
+        }
+
+        if (key.compareTo(node.key) < 0) {
+            node.left = remove(node.left, key);
+            return node;
+        } else if (key.compareTo(node.key) > 0) {
+            node.right = remove(node.right, key);
+            return node;
+        } else { // key == node->key
+            if (node.left == null) {
+                Node rightNode = node.right;
+                count--;
+                return rightNode;
+            }
+            if (node.right == null) {
+                Node leftNode = node.left;
+                count--;
+                return leftNode;
+            }
+
+            // node->left != null && node->right != null
+            Node successor = new Node(minimum(node.right));
+            successor.left = node.left;
+            successor.right = removeMin(node.right);
+            count--;
+
+            return successor;
         }
     }
 
@@ -256,7 +316,6 @@ public class BST<Key extends Comparable<Key>, Value> {
             return contain(node.right, key);
         }
     }
-
 
 
     public static void main(String[] args) {
