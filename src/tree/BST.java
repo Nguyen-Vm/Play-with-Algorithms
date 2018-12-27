@@ -63,7 +63,8 @@ public class BST<Key extends Comparable<Key>, Value> {
      * @return
      */
     public boolean contain(Key key) {
-        return contain(root, key);
+        return search(root, key) != null;
+        // return contain(root, key);
     }
 
     /**
