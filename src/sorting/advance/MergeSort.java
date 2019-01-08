@@ -12,7 +12,7 @@ public class MergeSort {
     }
 
     public static void sort(Comparable[] arr) {
-        Comparable[] aux = new Integer[arr.length];
+        Comparable[] aux = new Comparable[arr.length];
         sort(arr, aux, 0, arr.length - 1);
     }
 
