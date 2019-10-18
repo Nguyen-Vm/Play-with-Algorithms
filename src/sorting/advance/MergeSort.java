@@ -25,29 +25,33 @@ public class MergeSort {
         merge(arr, aux, left, middle, right);
     }
 
-    private static void merge(Comparable[] arr, Comparable[] aux, int left, int middle, int right) {
+    private static void merge(Comparable[] arr, Comparable[] aux, int l, int m, int r) {
 
-        for (int k = left; k <= right; k++) {
+        for (int k = l; k <= r; k++) {
             aux[k] = arr[k];
         }
 
-        int i = left, j = middle + 1;
-        for (int k = left; k <= right; k++) {
-            if (i > middle) {
-                arr[k] = aux[j++];
-            } else if (j > right) {
-                arr[k] = aux[i++];
-            } else if (SortHelper.less(aux[i], aux[j])) {
-                arr[k] = aux[i++];
+        int i = l, j = m + 1;
+        for (int k = l; k <= r; k++) {
+            if (i > m) {
+                arr[k] = aux[j];
+                j++;
+            } else if (j > r) {
+                arr[k] = aux[i];
+                i++;
+            } else if (aux[i].compareTo(aux[j]) < 0) {
+                arr[k] = aux[i];
+                i++;
             } else {
-                arr[k] = aux[j++];
+                arr[k] = aux[j];
+                j++;
             }
         }
 
     }
 
     public static void main(String[] args) {
-        Comparable[] arr = SortHelper.generateRandomArray(20, 0, 20);
+        Comparable[] arr = SortHelper.generateRandomArray(20000, 0, 20000);
         sort(arr);
         assert SortHelper.isSorted(arr);
     }
