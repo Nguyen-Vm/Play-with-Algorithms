@@ -8,13 +8,14 @@ import sorting.SortHelper;
  */
 public class SelectSortOptimized {
 
-    private SelectSortOptimized() {}
+    private SelectSortOptimized() {
+    }
 
     public static void sort(Comparable[] arr) {
 
         int left = 0, right = arr.length - 1;
 
-        while(left < right) {
+        while (left < right) {
             int minIndex = left;
             int maxIndex = right;
 
@@ -33,8 +34,8 @@ public class SelectSortOptimized {
             swap(arr, left, minIndex);
             swap(arr, right, maxIndex);
 
-            left ++;
-            right --;
+            left++;
+            right--;
         }
     }
 

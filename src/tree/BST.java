@@ -291,7 +291,19 @@ public class BST<Key extends Comparable<Key>, Value> {
     }
 
     private Value search(Node node, Key key) {
-        if (node == null) {
+        Node p = node;
+        while (p != null) {
+            int cmp = key.compareTo(p.key);
+            if (cmp < 0) {
+                p = p.left;
+            } else if (cmp > 0) {
+                p = p.right;
+            } else {
+                return p.value;
+            }
+        }
+        return null;
+        /*if (node == null) {
             return null;
         }
 
@@ -301,11 +313,23 @@ public class BST<Key extends Comparable<Key>, Value> {
             return search(node.left, key);
         } else {
             return search(node.right, key);
-        }
+        }*/
     }
 
     private boolean contain(Node node, Key key) {
-        if (node == null) {
+        Node p = node;
+        while (p != null) {
+            int cmp = key.compareTo(p.key);
+            if (cmp < 0) {
+                p = p.left;
+            } else if (cmp > 0) {
+                p = p.right;
+            } else {
+                return true;
+            }
+        }
+        return false;
+        /*if (node == null) {
             return false;
         }
 
@@ -315,7 +339,7 @@ public class BST<Key extends Comparable<Key>, Value> {
             return contain(node.left, key);
         } else {
             return contain(node.right, key);
-        }
+        }*/
     }
 
 

@@ -12,7 +12,7 @@ public class UnionFind1 {
         count = n;
         id = new int[n];
 
-        for(int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) {
             id[i] = i;
         }
     }
@@ -33,7 +33,7 @@ public class UnionFind1 {
             return;
         }
 
-        for (int i = 0; i < count; i ++) {
+        for (int i = 0; i < count; i++) {
             if (id[i] == pId) {
                 id[i] = qId;
             }

@@ -7,7 +7,7 @@ package offer;
 public class Find {
 
 
-    public static boolean find(int target, int [][] array) {
+    public static boolean find(int target, int[][] array) {
         if (array == null) {
             return false;
         }

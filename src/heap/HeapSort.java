@@ -1,11 +1,20 @@
 package heap;
 
+import sorting.SortHelper;
+
 /**
  * @author RWM
  * @date 2018/12/24
  */
 // 不使用一个额外的最大堆, 直接在原数组上进行原地的堆排序
 public class HeapSort {
+
+    public static void main(String[] args) {
+        int N = 1000000;
+
+        Integer[] arr = SortHelper.generateRandomArray(N, 0, N);
+        SortHelper.testSort("heap.HeapSort", arr);
+    }
 
     public static void sort(Comparable[] arr) {
         int n = arr.length;
@@ -35,7 +44,7 @@ public class HeapSort {
 
         while (2 * k + 1 < n) {
             int j = 2 * k + 1;
-            if (j + 1 <= n && arr[j + 1].compareTo(arr[j]) > 0) {
+            if (j + 1 < n && arr[j + 1].compareTo(arr[j]) > 0) {
                 j++;
             }
 

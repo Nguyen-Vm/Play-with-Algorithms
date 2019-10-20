@@ -14,7 +14,7 @@ public class UnionFind4 {
         rank = new int[n];
         count = n;
 
-        for(int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) {
             parent[i] = i;
             rank[i] = 1;
         }
@@ -41,7 +41,7 @@ public class UnionFind4 {
 
         if (rank[pRoot] < rank[qRoot]) {
             parent[pRoot] = qRoot;
-        } else if (rank[pRoot] > rank[qRoot]){
+        } else if (rank[pRoot] > rank[qRoot]) {
             parent[qRoot] = pRoot;
         } else {
             parent[pRoot] = qRoot;

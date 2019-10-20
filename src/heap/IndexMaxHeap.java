@@ -167,7 +167,7 @@ public class IndexMaxHeap<Item extends Comparable> {
         while (k > 1 && data[indexes[k / 2]].compareTo(data[indexes[k]]) < 0) {
             swap(indexes[k], indexes[k / 2]);
             reverse[indexes[k]] = k;
-            reverse[indexes[k/2]] = k/2;
+            reverse[indexes[k / 2]] = k / 2;
             k /= 2;
         }
     }
