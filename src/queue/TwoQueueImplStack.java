@@ -8,9 +8,16 @@ import java.util.Queue;
  * @date 2019/10/20
  */
 public class TwoQueueImplStack {
+    /**
+     * 任何时刻，至少有一个队列为空
+     */
     static Queue<Integer> queue1 = new ArrayDeque<>();
     static Queue<Integer> queue2 = new ArrayDeque<>();
 
+    /**
+     * 两个队列同时为空，往queuq1 push元素，否则给不为空的队列push元素
+     * @param element
+     */
     public static void push(Integer element) {
         if (queue1.isEmpty() && queue2.isEmpty()) {
             queue1.add(element);
@@ -21,6 +28,11 @@ public class TwoQueueImplStack {
         }
     }
 
+    /**
+     * 两个队列同时为空，pop为null
+     * 不为空的队列除最后一个元素外，全部压进另一个队列，再弹出最后一个元素
+     * @return
+     */
     public static Integer pop() {
         if (queue1.isEmpty() && queue2.isEmpty()) {
             //throw new RuntimeException("stack empty!");
