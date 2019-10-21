@@ -1,4 +1,4 @@
-package offer;
+package offer.数组;
 
 /**
  * @author RWM
