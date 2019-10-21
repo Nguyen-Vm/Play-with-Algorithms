@@ -1,11 +1,12 @@
 package offer.数组;
 
 /**
+ * 二维数组中的查找
+ *
  * @author RWM
  * @date 2019/10/12
  */
 public class Find {
-
 
     public static boolean find(int target, int[][] array) {
         if (array == null) {
