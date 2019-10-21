@@ -1,4 +1,4 @@
-package offer.二叉树;
+package leetcodeOrOffer.二叉树;
 
 /**
  * 对称的二叉树

@@ -1,4 +1,4 @@
-package offer.链表;
+package leetcodeOrOffer.链表;
 
 import java.util.ArrayList;
 import java.util.List;

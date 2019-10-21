@@ -1,4 +1,4 @@
-package offer.链表;
+package leetcodeOrOffer.链表;
 
 /**
  * 链表中倒数第k个结点

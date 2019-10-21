@@ -1,4 +1,4 @@
-package offer.数组;
+package leetcodeOrOffer.数组;
 
 /**
  * 二维数组中的查找
